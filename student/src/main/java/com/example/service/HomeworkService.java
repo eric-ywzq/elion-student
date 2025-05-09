@@ -63,11 +63,11 @@ public class HomeworkService {
     }
 
     public PageResult<Essay> getStudentEssaysByPage(int studentId, int pageNum) {
-        int offset = (pageNum - 1) * pageNum;
-        List<Essay> essays = homeworkMapper.selectStudentEssaysByPage(studentId, offset, pageNum);
+        int offset = (pageNum - 1) * 4;
+        List<Essay> essays = homeworkMapper.selectStudentEssaysByPage(studentId, offset, 4);
         int total = homeworkMapper.countStudentEssays(studentId);
-        int totalPages = (int) Math.ceil((double) total / pageNum);
-        return new PageResult<>(essays, pageNum, pageNum, total, totalPages);
+        int totalPages = (int) Math.ceil((double) total / 4);
+        return new PageResult<>(essays, pageNum, 4, total, totalPages);
     }
 
     private Map<String, Object> convertHomeworkToMap(Essay essay) {

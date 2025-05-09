@@ -20,4 +20,5 @@ public class EssayHistory {
     private String images; // JSON存储图片路径
     private String ocrResults; // JSON存储OCR结果
     private LocalDateTime createTime;
+    private int pageNum;
 }

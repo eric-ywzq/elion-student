@@ -2,6 +2,7 @@ package com.example.service;
 
 import com.example.entity.EssayDetailVO;
 import com.example.entity.EssaySubmissionDTO;
+import com.example.entity.PageResult;
 import com.example.mapper.HomeworkMapper;
 import com.example.mapper.StudentMapper;
 import com.example.entity.Essay;
@@ -61,8 +62,12 @@ public class HomeworkService {
         return response;
     }
 
-    public List<Essay> getHomeworkList() {
-         return homeworkMapper.getHomeworkList();
+    public PageResult<Essay> getStudentEssaysByPage(int studentId, int pageNum) {
+        int offset = (pageNum - 1) * pageNum;
+        List<Essay> essays = homeworkMapper.selectStudentEssaysByPage(studentId, offset, pageNum);
+        int total = homeworkMapper.countStudentEssays(studentId);
+        int totalPages = (int) Math.ceil((double) total / pageNum);
+        return new PageResult<>(essays, pageNum, pageNum, total, totalPages);
     }
 
     private Map<String, Object> convertHomeworkToMap(Essay essay) {

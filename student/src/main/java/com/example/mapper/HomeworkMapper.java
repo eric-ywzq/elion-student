@@ -17,8 +17,11 @@ public interface HomeworkMapper {
     List<Essay> selecthistorysBypid(UUID homeworkId);
     @Select("SELECT id, name,class FROM student WHERE id IN (SELECT commenter_id FROM homework_peer_comment WHERE homework_id = #{homeworkId})")
     List<Student> selectPeerCommentListByHomeworkId(UUID homeworkId);
-    @Select("SELECT pid, id, type, title, content from homework limit 8")
-    List<Essay> getHomeworkList();
+
+    @Select("SELECT e.* FROM essay e WHERE e.sid = #{studentId} ORDER BY e.created_time DESC LIMIT #{offset}, #{pageSize}")
+    List<Essay> selectStudentEssaysByPage(@Param("studentId") int studentId, @Param("offset") int offset, @Param("pageSize") int pageSize);
+    @Select("SELECT COUNT(*) FROM essay WHERE sid = #{studentId}")
+    int countStudentEssays(@Param("studentId") int studentId);
 
     // 查询Essay基本信息
     @Select("SELECT * FROM essay WHERE pid = #{id}")

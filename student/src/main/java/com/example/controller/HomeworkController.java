@@ -3,6 +3,7 @@ package com.example.controller;
 import com.example.entity.Essay;
 import com.example.entity.EssayDetailVO;
 import com.example.entity.EssaySubmissionDTO;
+import com.example.entity.PageResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,8 +16,8 @@ import java.util.UUID;
 
 @RestController
 public class HomeworkController {
-    private final HomeworkService homeworkService;
 
+    private final HomeworkService homeworkService;
     @Autowired
     public HomeworkController(HomeworkService homeworkService) {
         this.homeworkService = homeworkService;
@@ -36,35 +37,32 @@ public class HomeworkController {
         return homeworkService.getHomeworkById(homeworkId);
     }
 
-    @RequestMapping("/api/homework/list")
-    public List<Essay> getHomeworkList() {
-        return homeworkService.getHomeworkList();
+    @PostMapping("/api/homework/list")
+    public ResponseEntity<PageResult<Essay>> getStudentEssays(
+            @PathVariable int studentId,
+            @RequestParam(defaultValue = "4") int page) {
+        PageResult<Essay> result = homeworkService.getStudentEssaysByPage(studentId, page);
+        return ResponseEntity.ok(result);
     }
 
     @PostMapping("/submit")
     public ResponseEntity<?> submitEssay(
-            @RequestAttribute("studentId") UUID studentId, // 从认证信息获取
-            @RequestBody EssaySubmissionDTO dto) {
-
+            @RequestAttribute("studentId") UUID studentId, @RequestBody EssaySubmissionDTO dto) {
         Essay essay = homeworkService.submitEssay(studentId, dto);
         return ResponseEntity.created(URI.create("/api/homeworks/" + essay.getPid()))
                 .body(essay);
     }
 
     // 查询学生自己的作业列表
-    @GetMapping("/my")
-    public ResponseEntity<List<Essay>> getMyEssays(
-            @RequestAttribute("studentId") int studentId) {
-
+    @PostMapping("/my")
+    public ResponseEntity<List<Essay>> getMyEssays(@RequestAttribute("studentId") int studentId) {
         List<Essay> essays = homeworkService.getStudentEssays(studentId);
         return ResponseEntity.ok(essays);
     }
 
     // 获取作业详情（带互评信息）
-    @GetMapping("/{essayId}")
-    public ResponseEntity<EssayDetailVO> getEssayDetail(
-            @PathVariable UUID essayId) {
-
+    @PostMapping("/{essayId}")
+    public ResponseEntity<EssayDetailVO> getEssayDetail(@PathVariable UUID essayId) {
         EssayDetailVO detail = homeworkService.getEssayDetail(essayId);
         return ResponseEntity.ok(detail);
     }

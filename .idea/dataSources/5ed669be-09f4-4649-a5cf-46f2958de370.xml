@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="@localhost">
+<dataSource name="student@localhost ">
   <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.53">
     <root id="1">
       <DefaultCasing>lower/lower</DefaultCasing>
@@ -1014,8 +1014,9 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </schema>
     <schema id="294" parent="1" name="student">
       <AutoIntrospectionLevel>3</AutoIntrospectionLevel>
+      <Current>1</Current>
       <LastIntrospectionLevel>3</LastIntrospectionLevel>
-      <LastIntrospectionLocalTimestamp>2025-05-07.11:02:52</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-05-09.08:55:35</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <user id="295" parent="1" name="mysql.infoschema">
@@ -1068,264 +1069,349 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <column id="305" parent="299" name="class_id">
+    <table id="305" parent="294" name="student_essay">
+      <DetailsLevel>3</DetailsLevel>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <column id="306" parent="299" name="class_id">
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StoredType>varchar(36)|0s</StoredType>
+      <StoredType>int unsigned|0s</StoredType>
     </column>
-    <column id="306" parent="299" name="sid">
+    <column id="307" parent="299" name="sid">
       <Comment>学生ID</Comment>
       <Position>2</Position>
-      <StoredType>varchar(50)|0s</StoredType>
+      <StoredType>int unsigned|0s</StoredType>
     </column>
-    <column id="307" parent="299" name="joined_time">
+    <column id="308" parent="299" name="joined_time">
       <Comment>加入时间</Comment>
       <Position>3</Position>
       <StoredType>datetime(6)|0s</StoredType>
     </column>
-    <column id="308" parent="299" name="quited_time">
+    <column id="309" parent="299" name="quited_time">
       <Comment>退出时间</Comment>
       <Position>4</Position>
       <StoredType>datetime(6)|0s</StoredType>
     </column>
-    <index id="309" parent="299" name="PRIMARY">
+    <index id="310" parent="299" name="PRIMARY">
       <ColNames>class_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="310" parent="299" name="PRIMARY">
+    <key id="311" parent="299" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="311" parent="300" name="pid">
+    <column id="312" parent="300" name="pid">
       <Comment>作业ID</Comment>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StoredType>varchar(36)|0s</StoredType>
+      <StoredType>int unsigned|0s</StoredType>
     </column>
-    <column id="312" parent="300" name="sid">
+    <column id="313" parent="300" name="sid">
       <Comment>学生ID</Comment>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StoredType>varchar(36)|0s</StoredType>
+      <StoredType>int unsigned|0s</StoredType>
     </column>
-    <column id="313" parent="300" name="title">
+    <column id="314" parent="300" name="title">
       <Comment>作业标题</Comment>
       <Position>3</Position>
       <StoredType>varchar(100)|0s</StoredType>
     </column>
-    <column id="314" parent="300" name="created_time">
+    <column id="315" parent="300" name="created_time">
       <Comment>提交时间</Comment>
       <Position>4</Position>
       <StoredType>datetime(6)|0s</StoredType>
     </column>
-    <column id="315" parent="300" name="last_modified_time">
+    <column id="316" parent="300" name="last_modified_time">
       <Comment>最后修改时间</Comment>
       <Position>5</Position>
       <StoredType>datetime(6)|0s</StoredType>
     </column>
-    <foreign-key id="316" parent="300" name="essay_ibfk_1">
-      <ColNames>pid</ColNames>
-      <RefColNames>pid</RefColNames>
-      <RefTableName>homework</RefTableName>
-    </foreign-key>
-    <index id="317" parent="300" name="PRIMARY">
+    <column id="317" parent="300" name="content">
+      <Comment>作业内容</Comment>
+      <Position>6</Position>
+      <StoredType>text|0s</StoredType>
+    </column>
+    <index id="318" parent="300" name="PRIMARY">
       <ColNames>pid</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="318" parent="300" name="PRIMARY">
+    <key id="319" parent="300" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="319" parent="301" name="pid">
+    <column id="320" parent="301" name="pid">
       <Comment>作业ID</Comment>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StoredType>varchar(36)|0s</StoredType>
+      <StoredType>int unsigned|0s</StoredType>
     </column>
-    <column id="320" parent="301" name="title">
+    <column id="321" parent="301" name="title">
       <Comment>作文标题</Comment>
       <Position>2</Position>
       <StoredType>varchar(200)|0s</StoredType>
     </column>
-    <column id="321" parent="301" name="submitted">
+    <column id="322" parent="301" name="submitted">
       <Comment>提交状态</Comment>
       <Position>3</Position>
       <StoredType>tinyint(1)|0s</StoredType>
     </column>
-    <column id="322" parent="301" name="total_score">
+    <column id="323" parent="301" name="total_score">
       <Comment>总分</Comment>
       <Position>4</Position>
       <StoredType>decimal(5,2 digit)|0s</StoredType>
     </column>
-    <foreign-key id="323" parent="301" name="essay_history_ibfk_1">
+    <foreign-key id="324" parent="301" name="essay_history_ibfk_1">
       <ColNames>pid</ColNames>
       <RefColNames>pid</RefColNames>
       <RefTableName>homework</RefTableName>
     </foreign-key>
-    <index id="324" parent="301" name="PRIMARY">
+    <index id="325" parent="301" name="PRIMARY">
       <ColNames>pid</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="325" parent="301" name="PRIMARY">
+    <key id="326" parent="301" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="326" parent="302" name="pid">
+    <column id="327" parent="302" name="pid">
       <Comment>作业ID</Comment>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StoredType>varchar(36)|0s</StoredType>
+      <StoredType>int unsigned|0s</StoredType>
     </column>
-    <column id="327" parent="302" name="id">
+    <column id="328" parent="302" name="id">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StoredType>varchar(36)|0s</StoredType>
+      <StoredType>int unsigned|0s</StoredType>
     </column>
-    <column id="328" parent="302" name="type">
+    <column id="329" parent="302" name="type">
       <Comment>题目类型</Comment>
       <Position>3</Position>
       <StoredType>varchar(10)|0s</StoredType>
     </column>
-    <column id="329" parent="302" name="title">
+    <column id="330" parent="302" name="title">
       <Comment>题目要求</Comment>
       <Position>4</Position>
       <StoredType>text|0s</StoredType>
     </column>
-    <column id="330" parent="302" name="content">
+    <column id="331" parent="302" name="content">
       <Comment>答案内容</Comment>
       <Position>5</Position>
       <StoredType>text|0s</StoredType>
     </column>
-    <index id="331" parent="302" name="PRIMARY">
+    <index id="332" parent="302" name="PRIMARY">
       <ColNames>pid</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="332" parent="302" name="PRIMARY">
+    <key id="333" parent="302" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <check id="333" parent="303" name="homework_peer_comment_chk_1">
+    <check id="334" parent="303" name="homework_peer_comment_chk_1">
       <NameSurrogate>1</NameSurrogate>
       <Predicate>`content_score` between 1 and 5</Predicate>
     </check>
-    <check id="334" parent="303" name="homework_peer_comment_chk_3">
+    <check id="335" parent="303" name="homework_peer_comment_chk_3">
       <NameSurrogate>1</NameSurrogate>
       <Predicate>`grammar_score` between 1 and 5</Predicate>
     </check>
-    <check id="335" parent="303" name="homework_peer_comment_chk_2">
+    <check id="336" parent="303" name="homework_peer_comment_chk_2">
       <NameSurrogate>1</NameSurrogate>
       <Predicate>`structure_score` between 1 and 5</Predicate>
     </check>
-    <column id="336" parent="303" name="id">
+    <column id="337" parent="303" name="id">
       <AutoIncrement>1</AutoIncrement>
       <Comment>唯一主键</Comment>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int unsigned|0s</StoredType>
     </column>
-    <column id="337" parent="303" name="homework_id">
+    <column id="338" parent="303" name="homework_id">
       <Comment>关联的作业ID</Comment>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>int unsigned|0s</StoredType>
     </column>
-    <column id="338" parent="303" name="commenter_id">
+    <column id="339" parent="303" name="commenter_id">
       <Comment>评价者学生ID</Comment>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>int unsigned|0s</StoredType>
     </column>
-    <column id="339" parent="303" name="commentee_id">
+    <column id="340" parent="303" name="commentee_id">
       <Comment>被评价学生ID</Comment>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>int unsigned|0s</StoredType>
     </column>
-    <column id="340" parent="303" name="content_score">
+    <column id="341" parent="303" name="content_score">
       <Comment>内容评分（1-5分）</Comment>
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>tinyint unsigned|0s</StoredType>
     </column>
-    <column id="341" parent="303" name="structure_score">
+    <column id="342" parent="303" name="structure_score">
       <Comment>结构评分（1-5分）</Comment>
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>tinyint unsigned|0s</StoredType>
     </column>
-    <column id="342" parent="303" name="grammar_score">
+    <column id="343" parent="303" name="grammar_score">
       <Comment>语法评分（1-5分）</Comment>
       <NotNull>1</NotNull>
       <Position>7</Position>
       <StoredType>tinyint unsigned|0s</StoredType>
     </column>
-    <column id="343" parent="303" name="total_score">
+    <column id="344" parent="303" name="total_score">
       <ColumnKind>generated-stored</ColumnKind>
       <Comment>自动计算的综合评分</Comment>
       <DefaultExpression>(((`content_score` + `structure_score`) + `grammar_score`) / 3.0)</DefaultExpression>
       <Position>8</Position>
       <StoredType>decimal(3,1 digit)|0s</StoredType>
     </column>
-    <column id="344" parent="303" name="comment_text">
+    <column id="345" parent="303" name="comment_text">
       <Comment>文字评价内容</Comment>
       <NotNull>1</NotNull>
       <Position>9</Position>
       <StoredType>text|0s</StoredType>
     </column>
-    <column id="345" parent="303" name="submitted_at">
+    <column id="346" parent="303" name="submitted_at">
       <Comment>提交时间</Comment>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>10</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="346" parent="303" name="status">
+    <column id="347" parent="303" name="status">
       <Comment>评价状态</Comment>
       <DefaultExpression>&apos;published&apos;</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>11</Position>
       <StoredType>enum(&apos;published&apos;, &apos;pending&apos;, &apos;deleted&apos;)|0e</StoredType>
     </column>
-    <index id="347" parent="303" name="PRIMARY">
+    <foreign-key id="348" parent="303" name="homework_peer_comment_ibfk_1">
+      <ColNames>homework_id</ColNames>
+      <RefColNames>pid</RefColNames>
+      <RefTableName>homework</RefTableName>
+    </foreign-key>
+    <foreign-key id="349" parent="303" name="homework_peer_comment_ibfk_2">
+      <ColNames>commenter_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>student</RefTableName>
+    </foreign-key>
+    <foreign-key id="350" parent="303" name="homework_peer_comment_ibfk_3">
+      <ColNames>commentee_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>student</RefTableName>
+    </foreign-key>
+    <index id="351" parent="303" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="348" parent="303" name="PRIMARY">
+    <index id="352" parent="303" name="homework_id">
+      <ColNames>homework_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="353" parent="303" name="commenter_id">
+      <ColNames>commenter_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="354" parent="303" name="commentee_id">
+      <ColNames>commentee_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="355" parent="303" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="349" parent="304" name="id">
+    <column id="356" parent="304" name="id">
       <AutoIncrement>1</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StoredType>int|0s</StoredType>
+      <StoredType>int unsigned|0s</StoredType>
     </column>
-    <column id="350" parent="304" name="name">
+    <column id="357" parent="304" name="name">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(10)|0s</StoredType>
     </column>
-    <column id="351" parent="304" name="class">
+    <column id="358" parent="304" name="class">
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StoredType>tinyint|0s</StoredType>
+      <StoredType>int unsigned|0s</StoredType>
     </column>
-    <index id="352" parent="304" name="PRIMARY">
+    <foreign-key id="359" parent="304" name="student_ibfk_1">
+      <ColNames>class</ColNames>
+      <RefColNames>class_id</RefColNames>
+      <RefTableName>class_history</RefTableName>
+    </foreign-key>
+    <index id="360" parent="304" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="353" parent="304" name="PRIMARY">
+    <index id="361" parent="304" name="class">
+      <ColNames>class</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="362" parent="304" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="363" parent="305" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int unsigned|0s</StoredType>
+    </column>
+    <column id="364" parent="305" name="student_id">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>int unsigned|0s</StoredType>
+    </column>
+    <column id="365" parent="305" name="essay_id">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>int unsigned|0s</StoredType>
+    </column>
+    <foreign-key id="366" parent="305" name="student_essay_ibfk_1">
+      <ColNames>student_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>student</RefTableName>
+    </foreign-key>
+    <foreign-key id="367" parent="305" name="student_essay_ibfk_2">
+      <ColNames>essay_id</ColNames>
+      <RefColNames>pid</RefColNames>
+      <RefTableName>essay</RefTableName>
+    </foreign-key>
+    <index id="368" parent="305" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="369" parent="305" name="student_id">
+      <ColNames>student_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="370" parent="305" name="essay_id">
+      <ColNames>essay_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="371" parent="305" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>

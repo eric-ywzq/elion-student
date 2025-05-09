@@ -4,7 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cae2b58b-ea09-4828-899c-83ecc5891cae" name="Changes" comment="Changes" />
+    <list default="true" id="cae2b58b-ea09-4828-899c-83ecc5891cae" name="Changes" comment="Changes">
+      <change afterPath="$PROJECT_DIR$/student/src/main/java/com/example/entity/EssayDetailVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/student/src/main/java/com/example/entity/EssaySubmissionDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5ed669be-09f4-4649-a5cf-46f2958de370.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5ed669be-09f4-4649-a5cf-46f2958de370.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/92aa5d6e-ae12-49ae-a4f8-43b15bb907d4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/92aa5d6e-ae12-49ae-a4f8-43b15bb907d4/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/92aa5d6e-ae12-49ae-a4f8-43b15bb907d4/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/92aa5d6e-ae12-49ae-a4f8-43b15bb907d4/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/92aa5d6e-ae12-49ae-a4f8-43b15bb907d4/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/src/main/java/com/example/controller/HomeworkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/student/src/main/java/com/example/controller/HomeworkController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/src/main/java/com/example/entity/Essay.java" beforeDir="false" afterPath="$PROJECT_DIR$/student/src/main/java/com/example/entity/Essay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/src/main/java/com/example/entity/EssayHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/student/src/main/java/com/example/entity/EssayHistory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/src/main/java/com/example/mapper/HomeworkMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/student/src/main/java/com/example/mapper/HomeworkMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/src/main/java/com/example/service/HomeworkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/student/src/main/java/com/example/service/HomeworkService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/student/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/student/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/target/classes/com/example/controller/HomeworkController.class" beforeDir="false" afterPath="$PROJECT_DIR$/student/target/classes/com/example/controller/HomeworkController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/target/classes/com/example/mapper/HomeworkMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/student/target/classes/com/example/mapper/HomeworkMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/target/classes/com/example/service/HomeworkService.class" beforeDir="false" afterPath="$PROJECT_DIR$/student/target/classes/com/example/service/HomeworkService.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,7 +105,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -152,7 +174,17 @@
       <workItem from="1746683040439" duration="455000" />
       <workItem from="1746688574898" duration="17215000" />
       <workItem from="1746748285938" duration="2915000" />
-      <workItem from="1746751226771" duration="304000" />
+      <workItem from="1746751226771" duration="2135000" />
+      <workItem from="1746756169427" duration="531000" />
+      <workItem from="1746756815716" duration="298000" />
+      <workItem from="1746757133998" duration="190000" />
+      <workItem from="1746757338987" duration="57000" />
+      <workItem from="1746757408930" duration="382000" />
+      <workItem from="1746757806493" duration="74000" />
+      <workItem from="1746757891900" duration="3350000" />
+      <workItem from="1746776890668" duration="119000" />
+      <workItem from="1746777038439" duration="893000" />
+      <workItem from="1746780837067" duration="2927000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -170,7 +202,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746751506579</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1746751586794</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1746751586794</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

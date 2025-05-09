@@ -16,7 +16,8 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Essay {
-    private UUID id;
+    private UUID sid;
+    private UUID pid;
     private String title;
     private Integer num;
     private Integer finishedNum;
@@ -25,5 +26,6 @@ public class Essay {
     private ZonedDateTime lastModifiedTime;
     private List<Homework> items;
     private List<Student> peerCommentList;
+    private String content;
 }
 

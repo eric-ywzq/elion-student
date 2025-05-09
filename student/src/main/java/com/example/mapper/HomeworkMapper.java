@@ -2,6 +2,7 @@ package com.example.mapper;
 
 import com.example.entity.ClassHistory;
 import com.example.entity.Essay;
+import com.example.entity.Homework;
 import com.example.entity.Student;
 import org.apache.ibatis.annotations.*;
 
@@ -36,7 +37,7 @@ public interface HomeworkMapper {
             @Result(property = "peerCommentList", column = "id",
                     many = @Many(select = "selectStudentsByEssayId"))
     })
-    Essay selectEssayWithid(UUID id);
+    Essay selectEssayWithId(UUID id);
 
     // 查询Essay的题目项
     @Select("SELECT pid, sid, title, created_time, last_modified_time FROM essay WHERE pid = #{essayId}")
@@ -54,4 +55,46 @@ public interface HomeworkMapper {
                     many = @Many(select = "selectClassHistoriesByStudentId"))
     })
     List<Student> selectStudentsByEssayId(UUID essayId);
+
+    // 学生提交作业
+    @Insert("INSERT INTO essay (pid, sid, title, created_time, last_modified_time) " +
+            "VALUES (#{pid}, #{sid}, #{title}, NOW(6), NOW(6))")
+    @Options(useGeneratedKeys = true, keyProperty = "pid")
+    int insertEssay(Essay essay);
+
+    // 关联学生与作业到中间表
+    @Insert("INSERT INTO student_essay (student_id, essay_id) VALUES (#{studentId}, #{essayId})")
+    int linkStudentEssay(@Param("studentId") UUID studentId, @Param("essayId") UUID essayId);
+
+    // 更新作业修改时间
+    @Update("UPDATE essay SET title = #{title}, last_modified_time = NOW(6) WHERE pid = #{pid}")
+    int updateEssayTitle(@Param("pid") int pid, @Param("title") String title);
+
+    // 查询学生所有提交的作业
+    @Select("SELECT * FROM essay WHERE sid = #{studentId}")
+    List<Essay> selectEssaysByStudentId(int studentId);
+
+    // 检查是否存在重复提交（根据业务需求）
+    @Select("SELECT COUNT(*) FROM essay WHERE sid = #{studentId} AND title = #{title}")
+    int countDuplicateSubmission(@Param("studentId") int studentId, @Param("title") String title);
+
+    // 删除作业提交（根据权限）
+    @Delete("DELETE FROM essay WHERE pid = #{pid} AND sid = #{studentId}")
+    int deleteEssay(@Param("pid") int pid, @Param("studentId") int studentId);
+
+    // ----------- 其他常用扩展操作 -----------
+
+    // 查询作业模板详情（带关联的学生提交记录）
+    @Select("SELECT h.* FROM homework h WHERE h.pid = #{homeworkId}")
+    @Results({
+            @Result(property = "pid", column = "pid"),
+            @Result(property = "submittedEssays", column = "pid",
+                    many = @Many(select = "selectEssaysByHomeworkId"))
+    })
+    Homework selectHomeworkWithSubmissions(int homeworkId);
+
+    @Select("SELECT e.* FROM essay e " +
+            "INNER JOIN student_essay se ON e.pid = se.essay_id " +
+            "WHERE se.student_id IN (SELECT sid FROM class_history WHERE class_id = #{classId})")
+    List<Essay> selectClassEssays(int classId);
 }

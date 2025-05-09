@@ -13,8 +13,8 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EssayHistory {
-    private UUID ehid;
-    private UUID eid;
+    private UUID sid;
+    private UUID pid;
     private String title;
     private String content;
     private String images; // JSON存储图片路径

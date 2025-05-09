@@ -7,22 +7,7 @@
 ​​homework_peer_comment​​	管理学生互评数据	        通过 homework_id 关联到 homework.pid，commenter_id/commentee_id 关联到 student.id
 ​​class_history​​	  记录学生加入/退出班级的时间线	  通过 sid 关联到 student.id
 ​​essay_history​​	  存档作业提交状态与最终得分	    通过 pid 关联到 homework.pid
-2. 服务分层架构
-               ┌──────────────┐
-               │   Controller │ 处理HTTP请求/响应
-               └──────┬───────┘
-                      ↓
-               ┌──────────────┐
-               │    Service   │ 业务逻辑（如提交校验、事务管理）
-               └──────┬───────┘
-                      ↓
-               ┌──────────────┐
-               │    Mapper    │ 数据库操作（MyBatis接口）
-               └──────┬───────┘
-                      ↓
-               ┌──────────────┐
-               │   Database   │ MySQL 数据存储
-               └──────────────┘
+2. 服务分层架构：controller层，service层，mapper层。
 各层职责：
 ​​Controller 层​​：接收前端请求，处理参数校验，返回统一响应格式（如 EssayDetailVO）。
 ​​Service 层​​：实现核心业务逻辑（如防止重复提交、事务控制），调用 Mapper 操作数据库。

@@ -9,10 +9,12 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Homework {
+public class PeerComment {
     private int id;
-    private int pid;
-    private String title;
-    private String content;
-    private String type;
+    private int homeworkid;
+    private int commenterid;
+    private int commenteeid;
+    private String comment;
+    private String score;
+    private String time;
 }

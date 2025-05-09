@@ -2,7 +2,7 @@ package com.example.service;
 
 import com.example.mapper.HomeworkMapper;
 import com.example.mapper.StudentMapper;
-import com.example.entity.Homework;
+import com.example.entity.Essay;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,97 +30,61 @@ public class HomeworkService {
         this.studentMapper = studentMapper;
     }
 
-    public Homework getHomeworkById(UUID homeworkId) {
-        Homework homework = homeworkMapper.selectHomeworkBypid(homeworkId);
-        if (homework == null) {
+    public Essay getHomeworkById(UUID homeworkId) {
+        Essay essay = homeworkMapper.selectHomeworkBypid(homeworkId);
+        if (essay == null) {
             logger.error("Homework not found with ID: {}", homeworkId);
             throw new RuntimeException("Homework not found");
         }
         // 手动加载班级历史（可选优化：使用 JOIN 查询）
-        homework.getPeerCommentList().forEach(student ->
+        essay.getPeerCommentList().forEach(student ->
                 student.setClassHistories(
                         studentMapper.selectClassByStudentId(student.getId())
                 )
         );
         logger.info("Successfully retrieved homework with ID: {}", homeworkId);
-        return homework;
+        return essay;
     }
 
-    public Map<String, Object> buildHomeworkResponse(Homework homework) {
+    public Map<String, Object> buildHomeworkResponse(UUID id) {
+        Essay essay = homeworkMapper.selectEssayWithid(id);
         Map<String, Object> response = new LinkedHashMap<>();
         response.put("errcode", 0);
 
         Map<String, Object> data = new LinkedHashMap<>();
-        data.put("entry", convertHomeworkToMap(homework));
+        data.put("entry", convertHomeworkToMap(essay));
         response.put("data", data);
-
         return response;
     }
 
-    public List<Homework> getHomeworkList() {
+    public List<Essay> getHomeworkList() {
          return homeworkMapper.getHomeworkList();
     }
 
-    private Map<String, Object> convertHomeworkToMap(Homework homework) {
+    private Map<String, Object> convertHomeworkToMap(Essay essay) {
         Map<String, Object> entry = new LinkedHashMap<>();
-        entry.put("pid", homework.getId().toString()); // UUID 转为字符串
-        entry.put("homeworkTitle", homework.getTitle());
-        entry.put("num", homework.getNum());
-        entry.put("finishedNum", homework.getFinishedNum());
-        entry.put("createdTime", formatDateTime(homework.getCreatedTime())); // 时间格式化
-        entry.put("deadline", formatDateTime(homework.getDeadline()));
-        entry.put("lastModifiedTime", formatDateTime(homework.getLastModifiedTime()));
+        entry.put("pid", essay.getId().toString());
+        entry.put("homeworkTitle", essay.getTitle());
+        entry.put("num", essay.getNum());
+        entry.put("finishedNum", essay.getFinishedNum());
+        entry.put("createdTime", formatDateTime(essay.getCreatedTime()));
+        entry.put("deadline", formatDateTime(essay.getDeadline()));
+        entry.put("lastModifiedTime", formatDateTime(essay.getLastModifiedTime()));
 
-        // 转换题目项
-        List<Map<String, Object>> items = homework.getItems().stream()
-                .map(item -> {
-                    Map<String, Object> itemMap = new LinkedHashMap<>();
-                    itemMap.put("type", item.getType());
-                    itemMap.put("title", item.getTitle());
-                    itemMap.put("content", item.getContent());
-                    return itemMap;
-                })
-                .collect(Collectors.toList());
-        entry.put("items", items);
-
-        // 转换学生评价列表
-        List<Map<String, Object>> comments = homework.getPeerCommentList().stream()
-                .map(student -> {
-                    Map<String, Object> studentMap = new LinkedHashMap<>();
-                    studentMap.put("sid", student.getId().toString());
-                    studentMap.put("name", student.getName());
-                    studentMap.put("gender", student.getGender());
-                    studentMap.put("phone", student.getPhone());
-
-                    // 转换班级历史
-                    List<Map<String, Object>> histories = student.getClassHistories().stream()
-                            .map(history -> {
-                                Map<String, Object> historyMap = new LinkedHashMap<>();
-                                historyMap.put("classId", history.getClassId());
-                                historyMap.put("joinedTime", formatDateTime(history.getJoinedTime()));
-                                historyMap.put("quitedTime", formatDateTime(history.getQuitedTime()));
-                                return historyMap;
-                            })
-                            .collect(Collectors.toList());
-                    studentMap.put("classHistories", histories);
-
-                    return studentMap;
-                })
-                .collect(Collectors.toList());
-        entry.put("peerCommentList", comments);
+        // 自动映射items和peerCommentList（无需手动转换）
+        entry.put("items", essay.getItems());
+        entry.put("peerCommentList", essay.getPeerCommentList());
         return entry;
     }
 
     // 时间格式化工具方法
     private String formatDateTime(ZonedDateTime dateTime) {
         return dateTime != null ?
-                dateTime.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME) :
-                null;
+                dateTime.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME) : null;
     }
 
     private String formatDateTime(LocalDateTime dateTime) {
         return dateTime != null ?
-                dateTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME) :
-                null;
+                dateTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME) : null;
     }
 }

@@ -20,5 +20,5 @@ public class Student {
     private List<ClassHistory> classHistories;
     private List<String> comment;
     private Class currentClass;
-    private List<Homework> HomeworkList;
+    private List<Essay> essayList;
 }

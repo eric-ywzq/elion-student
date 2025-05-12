@@ -72,11 +72,7 @@ public class HomeworkService {
         entry.put("num", essay.getNum());
         entry.put("finishedNum", essay.getFinishedNum());
         entry.put("createdTime", formatDateTime(essay.getCreatedTime()));
-        entry.put("deadline", formatDateTime(essay.getDeadline()));
         entry.put("lastModifiedTime", formatDateTime(essay.getLastModifiedTime()));
-
-        // 自动映射items和peerCommentList（无需手动转换）
-        entry.put("items", essay.getItems());
         entry.put("peerCommentList", essay.getPeerCommentList());
         return entry;
     }
@@ -97,18 +93,16 @@ public class HomeworkService {
         // 构建 Essay 对象
         Essay essay = new Essay();
         essay.setSid(studentId);
+        essay.setPid(UUID.randomUUID());
         essay.setTitle(dto.getTitle());
         essay.setNum(dto.getNum());
+        essay.setFinishedNum(0);
         essay.setCreatedTime(ZonedDateTime.now());
+        essay.setLastModifiedTime(ZonedDateTime.now());
         essay.setContent(dto.getContent());
-        // 其他字段设置...
 
-        // 插入作业记录
         homeworkMapper.insertEssay(essay);
-
-        // 关联学生与作业（中间表）
         homeworkMapper.linkStudentEssay(studentId, essay.getPid());
-
         return essay;
     }
 

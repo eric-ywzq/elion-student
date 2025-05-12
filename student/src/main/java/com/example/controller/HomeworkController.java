@@ -27,10 +27,10 @@ public class HomeworkController {
     }
 
     @PostMapping("/api/homework")
-    public Map<String, Object> submitHomework(@RequestBody Map<String, Object> request) {
+    public void submitHomework(@RequestBody Map<String, Object> request) {
         String homeworkIdStr = (String) request.get("homeworkId");
         UUID homeworkId = UUID.fromString(homeworkIdStr);
-        return homeworkService.buildHomeworkResponse(homeworkId);
+        homeworkService.submitEssay(homeworkId,new EssaySubmissionDTO());
     }
 
     @PostMapping("/api/homework/submit")

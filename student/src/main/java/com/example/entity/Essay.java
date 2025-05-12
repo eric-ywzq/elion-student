@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.UUID;
@@ -22,9 +21,7 @@ public class Essay {
     private Integer num;
     private Integer finishedNum;
     private ZonedDateTime createdTime;
-    private LocalDateTime deadline;
     private ZonedDateTime lastModifiedTime;
-    private List<Homework> items;
     private List<Student> peerCommentList;
     private String content;
 }

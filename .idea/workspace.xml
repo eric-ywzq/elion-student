@@ -5,19 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cae2b58b-ea09-4828-899c-83ecc5891cae" name="Changes" comment="Changes">
-      <change afterPath="$PROJECT_DIR$/student/src/test/java/com/example/controller/HomeworkControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/student/src/test/java/com/example/service/HomeworkServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/student/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/student/src/main/java/com/example/controller/HomeworkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/student/src/main/java/com/example/controller/HomeworkController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/src/main/java/com/example/entity/Essay.java" beforeDir="false" afterPath="$PROJECT_DIR$/student/src/main/java/com/example/entity/Essay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/student/src/main/java/com/example/mapper/HomeworkMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/student/src/main/java/com/example/mapper/HomeworkMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/student/src/main/java/com/example/service/HomeworkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/student/src/main/java/com/example/service/HomeworkService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/src/test/java/com/example/StudentApplicationTests.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/student/target/classes/com/example/controller/HomeworkController.class" beforeDir="false" afterPath="$PROJECT_DIR$/student/target/classes/com/example/controller/HomeworkController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/target/classes/com/example/mapper/HomeworkMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/student/target/classes/com/example/mapper/HomeworkMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/target/classes/com/example/service/HomeworkService.class" beforeDir="false" afterPath="$PROJECT_DIR$/student/target/classes/com/example/service/HomeworkService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/target/test-classes/com/example/StudentApplicationTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/target/test-classes/com/example/service/HomeworkServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/student/target/test-classes/com/example/service/HomeworkServiceTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,7 +252,7 @@
       <workItem from="1746777038439" duration="893000" />
       <workItem from="1746780837067" duration="10575000" />
       <workItem from="1747041476862" duration="3085000" />
-      <workItem from="1747045383235" duration="5353000" />
+      <workItem from="1747045383235" duration="6673000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -316,7 +310,23 @@
       <option name="project" value="LOCAL" />
       <updated>1746795574549</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1747050821355</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1747050821355</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1747050829355</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1747050829355</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

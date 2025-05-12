@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cae2b58b-ea09-4828-899c-83ecc5891cae" name="Changes" comment="Changes">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5ed669be-09f4-4649-a5cf-46f2958de370.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5ed669be-09f4-4649-a5cf-46f2958de370.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/src/main/java/com/example/controller/HomeworkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/student/src/main/java/com/example/controller/HomeworkController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/src/main/java/com/example/entity/Essay.java" beforeDir="false" afterPath="$PROJECT_DIR$/student/src/main/java/com/example/entity/Essay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/src/main/java/com/example/mapper/HomeworkMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/student/src/main/java/com/example/mapper/HomeworkMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/src/main/java/com/example/service/HomeworkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/student/src/main/java/com/example/service/HomeworkService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/target/classes/com/example/controller/HomeworkController.class" beforeDir="false" afterPath="$PROJECT_DIR$/student/target/classes/com/example/controller/HomeworkController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/target/test-classes/com/example/service/HomeworkServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/student/target/test-classes/com/example/service/HomeworkServiceTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,7 +247,7 @@
       <workItem from="1746777038439" duration="893000" />
       <workItem from="1746780837067" duration="10575000" />
       <workItem from="1747041476862" duration="3085000" />
-      <workItem from="1747045383235" duration="6673000" />
+      <workItem from="1747045383235" duration="8721000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -326,7 +321,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747050829355</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1747052288793</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1747052288793</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

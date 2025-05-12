@@ -5,8 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cae2b58b-ea09-4828-899c-83ecc5891cae" name="Changes" comment="Changes">
+      <change afterPath="$PROJECT_DIR$/student/src/test/java/com/example/controller/HomeworkControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/student/src/test/java/com/example/service/HomeworkServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/student/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/src/main/java/com/example/controller/HomeworkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/student/src/main/java/com/example/controller/HomeworkController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/src/main/java/com/example/mapper/HomeworkMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/student/src/main/java/com/example/mapper/HomeworkMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/student/src/main/java/com/example/service/HomeworkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/student/src/main/java/com/example/service/HomeworkService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/src/test/java/com/example/StudentApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/target/classes/com/example/controller/HomeworkController.class" beforeDir="false" afterPath="$PROJECT_DIR$/student/target/classes/com/example/controller/HomeworkController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/target/classes/com/example/mapper/HomeworkMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/student/target/classes/com/example/mapper/HomeworkMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/target/classes/com/example/service/HomeworkService.class" beforeDir="false" afterPath="$PROJECT_DIR$/student/target/classes/com/example/service/HomeworkService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/target/test-classes/com/example/StudentApplicationTests.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,49 +76,122 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;HTTP 请求.generated-requests | #1.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.student中的com.example.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.StudentApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "HTTP 请求.generated-requests | #1.executor": "Run",
+    "JUnit.HomeworkControllerTest.executor": "Run",
+    "JUnit.HomeworkControllerTest.getHomeworkById.executor": "Run",
+    "JUnit.HomeworkControllerTest.shouldReturnBadRequest_WhenMissingHomeworkIdInSubmitHomework.executor": "Run",
+    "JUnit.HomeworkServiceTest.executor": "Run",
+    "JUnit.HomeworkServiceTest.testGetEssayDetail_ReturnsEssayDetailVO.executor": "Run",
+    "JUnit.HomeworkServiceTest.testGetHomeworkById_ReturnsEssay.executor": "Run",
+    "JUnit.student中的com.example.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.StudentApplication.executor": "Run",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "coverage",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
-  <component name="RunManager" selected="JUnit.student中的com.example">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.controller" />
+    </key>
+  </component>
+  <component name="RunManager">
     <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#1" runType="运行单个请求">
       <method v="2" />
+    </configuration>
+    <configuration name="HomeworkControllerTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="student" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
+      <option name="PACKAGE_NAME" value="com.example.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.example.controller.HomeworkControllerTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HomeworkControllerTest.shouldReturnBadRequest_WhenMissingHomeworkIdInSubmitHomework" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="student" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.example.controller.HomeworkControllerTest" />
+      <option name="METHOD_NAME" value="shouldReturnBadRequest_WhenMissingHomeworkIdInSubmitHomework" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HomeworkServiceTest.testGetEssayDetail_ReturnsEssayDetailVO" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="student" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.service" />
+      <option name="MAIN_CLASS_NAME" value="com.example.service.HomeworkServiceTest" />
+      <option name="METHOD_NAME" value="testGetEssayDetail_ReturnsEssayDetailVO" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HomeworkServiceTest.testGetHomeworkById_ReturnsEssay" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="student" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.service" />
+      <option name="MAIN_CLASS_NAME" value="com.example.service.HomeworkServiceTest" />
+      <option name="METHOD_NAME" value="testGetHomeworkById_ReturnsEssay" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="student中的com.example" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="student" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.*" />
+          <option name="PATTERN" value="com.example.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.example" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -122,11 +206,18 @@
     </configuration>
     <list>
       <item itemvalue="HTTP 请求.generated-requests | #1" />
+      <item itemvalue="JUnit.HomeworkControllerTest" />
+      <item itemvalue="JUnit.HomeworkServiceTest.testGetEssayDetail_ReturnsEssayDetailVO" />
+      <item itemvalue="JUnit.HomeworkServiceTest.testGetHomeworkById_ReturnsEssay" />
+      <item itemvalue="JUnit.HomeworkControllerTest.shouldReturnBadRequest_WhenMissingHomeworkIdInSubmitHomework" />
       <item itemvalue="JUnit.student中的com.example" />
       <item itemvalue="Spring Boot.StudentApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.HomeworkServiceTest.testGetEssayDetail_ReturnsEssayDetailVO" />
+        <item itemvalue="JUnit.HomeworkServiceTest.testGetHomeworkById_ReturnsEssay" />
+        <item itemvalue="JUnit.HomeworkControllerTest.shouldReturnBadRequest_WhenMissingHomeworkIdInSubmitHomework" />
         <item itemvalue="JUnit.student中的com.example" />
         <item itemvalue="HTTP 请求.generated-requests | #1" />
       </list>
@@ -165,7 +256,9 @@
       <workItem from="1746757891900" duration="3350000" />
       <workItem from="1746776890668" duration="119000" />
       <workItem from="1746777038439" duration="893000" />
-      <workItem from="1746780837067" duration="8682000" />
+      <workItem from="1746780837067" duration="10575000" />
+      <workItem from="1747041476862" duration="3085000" />
+      <workItem from="1747045383235" duration="5353000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -215,7 +308,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746795121797</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1746795574549</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1746795574549</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

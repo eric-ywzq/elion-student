@@ -5,9 +5,11 @@ import com.example.entity.EssayDetailVO;
 import com.example.entity.EssaySubmissionDTO;
 import com.example.entity.PageResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.example.service.HomeworkService;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.net.URI;
 import java.util.List;
@@ -18,6 +20,7 @@ import java.util.UUID;
 public class HomeworkController {
 
     private final HomeworkService homeworkService;
+
     @Autowired
     public HomeworkController(HomeworkService homeworkService) {
         this.homeworkService = homeworkService;
@@ -34,33 +37,37 @@ public class HomeworkController {
     public Essay getHomeworkById(@RequestBody Map<String, Object> request) {
         String homeworkIdStr = (String) request.get("homeworkId");
         UUID homeworkId = UUID.fromString(homeworkIdStr);
-        return homeworkService.getHomeworkById(homeworkId);
+        Essay essay = homeworkService.getHomeworkById(homeworkId);
+        if (essay == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Homework not found");
+        }
+        return essay;
     }
 
-    @PostMapping("/api/homework/list")
+    @GetMapping("/api/homework/list")
     public ResponseEntity<PageResult<Essay>> getStudentEssays(
-            @PathVariable int studentId,
+            @RequestParam int studentId,
             @RequestParam(defaultValue = "4") int page) {
         PageResult<Essay> result = homeworkService.getStudentEssaysByPage(studentId, page);
         return ResponseEntity.ok(result);
     }
 
+
     @PostMapping("/submit")
     public ResponseEntity<?> submitEssay(
-            @RequestAttribute("studentId") UUID studentId, @RequestBody EssaySubmissionDTO dto) {
+            @RequestHeader("studentId") UUID studentId,
+            @RequestBody EssaySubmissionDTO dto) {
         Essay essay = homeworkService.submitEssay(studentId, dto);
         return ResponseEntity.created(URI.create("/api/homeworks/" + essay.getPid()))
                 .body(essay);
     }
 
-    // 查询学生自己的作业列表
     @PostMapping("/my")
-    public ResponseEntity<List<Essay>> getMyEssays(@RequestAttribute("studentId") int studentId) {
+    public ResponseEntity<List<Essay>> getMyEssays(@RequestHeader("studentId") int studentId) {
         List<Essay> essays = homeworkService.getStudentEssays(studentId);
         return ResponseEntity.ok(essays);
     }
 
-    // 获取作业详情（带互评信息）
     @PostMapping("/{essayId}")
     public ResponseEntity<EssayDetailVO> getEssayDetail(@PathVariable UUID essayId) {
         EssayDetailVO detail = homeworkService.getEssayDetail(essayId);

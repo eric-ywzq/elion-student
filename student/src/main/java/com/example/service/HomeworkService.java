@@ -37,11 +37,6 @@ public class HomeworkService {
 
     public Essay getHomeworkById(UUID homeworkId) {
         Essay essay = homeworkMapper.selectHomeworkBypid(homeworkId);
-        if (essay == null) {
-            logger.error("Homework not found with ID: {}", homeworkId);
-            throw new RuntimeException("Homework not found");
-        }
-        // 手动加载班级历史（可选优化：使用 JOIN 查询）
         essay.getPeerCommentList().forEach(student ->
                 student.setClassHistories(
                         studentMapper.selectClassByStudentId(student.getId())
@@ -126,12 +121,12 @@ public class HomeworkService {
     // 获取作业详情（带互评信息）
     @Transactional(readOnly = true)
     public EssayDetailVO getEssayDetail(UUID essayId) {
-        List<Essay> essay = homeworkMapper.selectEssaysByEssayId(essayId);
+        Essay essay = homeworkMapper.selectEssayByEssayId(essayId); // ← 修改：返回单个 Essay
 
-        // 转换VO对象（根据需求补充字段）
         EssayDetailVO vo = new EssayDetailVO();
-        BeanUtils.copyProperties(essay, vo);
+        BeanUtils.copyProperties(vo, essay); // 注意方向：目标在前
         vo.setPeerComments(homeworkMapper.selectPeerCommentListByHomeworkId(essayId));
+
         return vo;
     }
 }

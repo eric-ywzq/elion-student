@@ -44,7 +44,7 @@ public interface HomeworkMapper {
 
     // 查询Essay的题目项
     @Select("SELECT pid, sid, title, created_time, last_modified_time FROM essay WHERE pid = #{essayId}")
-    List<Essay> selectEssaysByEssayId(UUID essayId);
+    Essay selectEssayByEssayId(UUID essayId);
 
     // 查询Essay的学生评价列表
     @Select("SELECT s.* FROM student s JOIN homework_peer_comment esc ON s.id = esc.commentee_id WHERE esc.homework_id = #{essayId}")
